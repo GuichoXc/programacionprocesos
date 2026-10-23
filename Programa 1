@@ -1,0 +1,36 @@
+Pseudocodigo:
+inicio
+declarar: a, b, c como numérico
+
+mostrar "Ingrese el valor de a:"
+leer a
+mostrar "Ingrese el valor de b:"
+leer b
+mostrar "Ingrese el valor de c:"
+leer c
+
+si (a == 0 y b == 0 y c == 0) entonces
+mostrar "Los valores no indican figura"
+
+sino si ((a > 0 y b == 0 y c == 0) o (a == 0 y b > 0 y c == 0) o (a == 0 y b == 0 y c > 0)) entonces
+mostrar "La figura es un círculo"
+
+sino si ((a == b y c == 0 y a > 0) o (a == c y b == 0 y a > 0) o (b == c y a == 0 y b > 0)) entonces
+mostrar "La figura es un cuadrado"
+
+sino si ((a != b y c == 0 y a > 0 y b > 0) o (a != c y b == 0 y a > 0 y c > 0) o (b != c y a == 0 y b > 0 y c > 0)) entonces
+mostrar "La figura es un rectángulo"
+
+sino si (a == b y b == c y a > 0) entonces
+mostrar "La figura es un triángulo equilátero"
+
+sino si (((a == b y a != c) o (a == c y a != b) o (b == c y b != a)) y a > 0 y b > 0 y c > 0) entonces
+mostrar "La figura es un triángulo isósceles"
+
+sino si (a != b y b != c y a != c y a > 0 y b > 0 y c > 0) entonces
+mostrar "La figura es un triángulo escaleno"
+
+sino
+mostrar "Los valores no indican una figura válida"
+fin_si
+fin
