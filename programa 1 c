@@ -13,30 +13,47 @@ int main() {
     cout << "Ingrese el valor de c: ";
     cin >> c;
 
-    // Evaluando las condiciones
+    // 1. Validar si todos son ceros o valores inválidos de inicio
     if (a == 0 && b == 0 && c == 0) {
         cout << "Los valores no indican figura." << endl;
     }
+    // 2. Círculo: solo un valor mayor a 0 y los otros dos en 0
     else if ((a > 0 && b == 0 && c == 0) || (a == 0 && b > 0 && c == 0) || (a == 0 && b == 0 && c > 0)) {
         cout << "La figura es un circulo." << endl;
     }
+    // 3. Cuadrado: 2 valores iguales y uno es 0
     else if ((a == b && c == 0 && a > 0) || (a == c && b == 0 && a > 0) || (b == c && a == 0 && b > 0)) {
         cout << "La figura es un cuadrado." << endl;
     }
+    // 4. Rectángulo: 2 valores diferentes y uno es 0
     else if ((a != b && c == 0 && a > 0 && b > 0) || (a != c && b == 0 && a > 0 && c > 0) || (b != c && a == 0 && b > 0 && c > 0)) {
         cout << "La figura es un rectangulo." << endl;
     }
+    // 5. Triángulo Equilátero: 3 valores iguales
     else if (a == b && b == c && a > 0) {
         cout << "La figura es un triangulo equilatero." << endl;
     }
+    // 6. Triángulo Isósceles (validando primero que formen un triángulo real)
     else if (((a == b && a != c) || (a == c && a != b) || (b == c && b != a)) && a > 0 && b > 0 && c > 0) {
-        cout << "La figura es un triangulo isoceles." << endl;
+        // Regla de desigualdad triangular para isósceles
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            cout << "La figura es un triangulo isoceles." << endl;
+        } else {
+            cout << "Los valores no indican figura." << endl;
+        }
     }
+    // 7. Triángulo Escaleno (validando regla de formación de triángulo)
     else if (a != b && b != c && a != c && a > 0 && b > 0 && c > 0) {
-        cout << "La figura es un triangulo escaleno." << endl;
+        // Regla de desigualdad triangular: la suma de dos lados debe ser mayor al tercero
+        if ((a + b > c) && (a + c > b) && (b + c > a)) {
+            cout << "La figura es un triangulo escaleno." << endl;
+        } else {
+            cout << "Los valores no indican figura." << endl;
+        }
     }
+    // Cualquier otro caso no contemplado
     else {
-        cout << "Los valores no indican una figura valida." << endl;
+        cout << "Los valores no indican figura." << endl;
     }
 
     return 0;
